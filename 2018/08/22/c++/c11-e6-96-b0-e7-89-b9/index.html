@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>C++研究之---C++11 新特性 | Le-More</title>
+  <meta name="keywords" content=" c++ , c++11 ">
+  <meta name="description" content="C++研究之---C++11 新特性 | Le-More">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我西江月·世事一场大梦世事一场大梦，人生几度秋凉？夜来风叶已鸣廊。看取眉头鬓上。酒贱常愁客少，月明多被云妨。中秋谁与共孤光。把盏凄然北望。 我叫薛刚，从事游戏行业，以搬砖为生。工作十余载，四处飘零终未得安。 心中之梦，虽遥不可及，唯有坚持，方能成就！ welcome to contact me.Facebook:max.xue.gangEmail: xue_huashan@163.com QQ">
+<meta name="keywords" content="coder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://blog.le-more.com/about/index.html">
+<meta property="og:site_name" content="Le-More">
+<meta property="og:description" content="关于我西江月·世事一场大梦世事一场大梦，人生几度秋凉？夜来风叶已鸣廊。看取眉头鬓上。酒贱常愁客少，月明多被云妨。中秋谁与共孤光。把盏凄然北望。 我叫薛刚，从事游戏行业，以搬砖为生。工作十余载，四处飘零终未得安。 心中之梦，虽遥不可及，唯有坚持，方能成就！ welcome to contact me.Facebook:max.xue.gangEmail: xue_huashan@163.com QQ">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-08T09:59:31.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于">
+<meta name="twitter:description" content="关于我西江月·世事一场大梦世事一场大梦，人生几度秋凉？夜来风叶已鸣廊。看取眉头鬓上。酒贱常愁客少，月明多被云妨。中秋谁与共孤光。把盏凄然北望。 我叫薛刚，从事游戏行业，以搬砖为生。工作十余载，四处飘零终未得安。 心中之梦，虽遥不可及，唯有坚持，方能成就！ welcome to contact me.Facebook:max.xue.gangEmail: xue_huashan@163.com QQ">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>max-xue</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/max-xue" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/max.xue.gang" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/276551883" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:xue_huashan@163.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=276551883&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(108)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Cocos">Cocos<small>(17)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="C">C<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Other">Other<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="macOS">macOS<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Life">Life<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Math">Math<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Server">Server<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Tools">Tools<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="U3D">U3D<small>(43)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="UE4">UE4<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="108">
+<input type="hidden" id="yelog_site_word_count" value="111.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">c++</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">c++11</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">mylife</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">guide</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">u3d</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">pattern</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">shader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">ar</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">总结</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">tool</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">优化</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">vr</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ue4</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2019/10/11/top/0002_new_home/"
+           data-tag="mylife"
+           data-author="" >
+            <span class="post-title" title="新的家园">新的家园</span>
+            <span class="post-date" title="2019-10-11 11:54:03">2019/10/11</span>
+        </a>
+        
+        <a id="top" class=""
+           href="/2019/10/11/top/0001_hexo_guide/"
+           data-tag="hexo,guide"
+           data-author="" >
+            <span class="post-title" title="使用Hexo搭建网站个人总结">使用Hexo搭建网站个人总结</span>
+            <span class="post-date" title="2019-10-11 11:58:48">2019/10/11</span>
+        </a>
+        
+        <a id="top" class="Tools "
+           href="/2018/05/08/tools/shadowsocks-e4-bd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Shadowsocks 使用总结">Shadowsocks 使用总结</span>
+            <span class="post-date" title="2018-05-08 11:01:41">2018/05/08</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2019/11/09/u3d/csharp_4x_candy/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=".Net 4.x Equivalent语法糖">.Net 4.x Equivalent语法糖</span>
+            <span class="post-date" title="2019-11-09 10:18:11">2019/11/09</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2019/10/25/cocos/cocos_dev_summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cocos Creator 开发问题汇总">Cocos Creator 开发问题汇总</span>
+            <span class="post-date" title="2019-10-25 16:31:13">2019/10/25</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2019/10/24/cocos/apk_unpacking/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android 破解APK包">Android 破解APK包</span>
+            <span class="post-date" title="2019-10-24 20:10:00">2019/10/24</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2019/09/23/cocos/cocos-creator-e6-89-85obb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cocos Creator 打包OBB">Cocos Creator 打包OBB</span>
+            <span class="post-date" title="2019-09-23 21:29:52">2019/09/23</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2019/07/20/u3d/unity-e4-bc-98-e5-8c-96-e6/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity优化汇总">Unity优化汇总</span>
+            <span class="post-date" title="2019-07-20 21:51:54">2019/07/20</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2018/11/12/cocos/android-e9-87-8d-e6-96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android 重新签名打包">Android 重新签名打包</span>
+            <span class="post-date" title="2018-11-12 22:23:09">2018/11/12</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2018/09/16/math/e7-ae-97-e6-b3-95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法研究之---冒泡排序">算法研究之---冒泡排序</span>
+            <span class="post-date" title="2018-09-16 10:31:59">2018/09/16</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2018/09/15/math/e7-ae-97-e6-b3-96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法研究之—希尔排序">算法研究之—希尔排序</span>
+            <span class="post-date" title="2018-09-15 20:45:37">2018/09/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2018/09/15/math/e7-ae-97-e6-b3-98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法研究之---插入排序">算法研究之---插入排序</span>
+            <span class="post-date" title="2018-09-15 14:22:22">2018/09/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2018/09/15/math/e7-ae-97-e6-b3-97/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法研究之---开篇">算法研究之---开篇</span>
+            <span class="post-date" title="2018-09-15 13:39:35">2018/09/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2018/09/10/math/e6-af-8f-e4-b8-aa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="每个程序员都应该收藏的算法复杂度速查表">每个程序员都应该收藏的算法复杂度速查表</span>
+            <span class="post-date" title="2018-09-10 10:08:42">2018/09/10</span>
+        </a>
+        
+        <a  class="C "
+           href="/2018/08/30/c++/c-vector-list-deque-map/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++ vector list deque map 的优缺点以及区别">C++ vector list deque map 的优缺点以及区别</span>
+            <span class="post-date" title="2018-08-30 18:37:40">2018/08/30</span>
+        </a>
+        
+        <a  class="C "
+           href="/2018/08/29/c++/c-e5-86-85-e5-ad-98-e5/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++开发之---内存对齐">C++开发之---内存对齐</span>
+            <span class="post-date" title="2018-08-29 18:37:40">2018/08/29</span>
+        </a>
+        
+        <a  class="C "
+           href="/2018/08/28/c++/c-e5-8d-95-e4-be-8b-e7/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++开发之---单例类的实现">C++开发之---单例类的实现</span>
+            <span class="post-date" title="2018-08-28 18:39:00">2018/08/28</span>
+        </a>
+        
+        <a  class="C "
+           href="/2018/08/22/c++/c11-e6-96-b0-e7-89-b9/"
+           data-tag="c++,c++11"
+           data-author="" >
+            <span class="post-title" title="C++研究之---C++11 新特性">C++研究之---C++11 新特性</span>
+            <span class="post-date" title="2018-08-22 13:57:02">2018/08/22</span>
+        </a>
+        
+        <a  class="C "
+           href="/2018/08/22/c++/c-virtual-e8-a7-a3-e6-9e-90/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++研究之---virtual 解析">C++研究之---virtual 解析</span>
+            <span class="post-date" title="2018-08-22 10:50:22">2018/08/22</span>
+        </a>
+        
+        <a  class="Server "
+           href="/2018/08/04/server/e6-9c-8d-e5-8a-a1-e5-redis/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="服务器开发之---Redis">服务器开发之---Redis</span>
+            <span class="post-date" title="2018-08-04 12:27:01">2018/08/04</span>
+        </a>
+        
+        <a  class="Server "
+           href="/2018/08/01/server/java-e5-bc-80-e5-8f-91-e4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="服务器开发之---Java问题汇总">服务器开发之---Java问题汇总</span>
+            <span class="post-date" title="2018-08-01 21:11:05">2018/08/01</span>
+        </a>
+        
+        <a  class="C "
+           href="/2018/07/30/c++/c-primer-e5-ad-a6-e4-b9/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++ Primer 学习笔记之 --- 学习总结">C++ Primer 学习笔记之 --- 学习总结</span>
+            <span class="post-date" title="2018-07-30 10:17:10">2018/07/30</span>
+        </a>
+        
+        <a  class="Server "
+           href="/2018/07/29/server/mariadb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="服务器开发之---MariaDB(MySql)">服务器开发之---MariaDB(MySql)</span>
+            <span class="post-date" title="2018-07-29 10:46:09">2018/07/29</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/07/06/u3d/unity-e5-bc-80-e5-8f-91-e8/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发之音乐游戏---基础知识">Unity开发之音乐游戏---基础知识</span>
+            <span class="post-date" title="2018-07-06 21:23:14">2018/07/06</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/07/05/u3d/unity-e5-bc-80-e5-8f-91-e4/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发之工具一技能参数配置">Unity开发之工具一技能参数配置</span>
+            <span class="post-date" title="2018-07-05 21:07:24">2018/07/05</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/07/04/u3d/unity-e5-bc-80-e5-8f-91-e5/"
+           data-tag="u3d,network"
+           data-author="" >
+            <span class="post-title" title="Unity开发之工具---GPS数据采集">Unity开发之工具---GPS数据采集</span>
+            <span class="post-date" title="2018-07-04 21:06:47">2018/07/04</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/07/03/u3d/unity-e5-bc-80-e5-8f-91-e7/"
+           data-tag="u3d,network"
+           data-author="" >
+            <span class="post-title" title="Unity开发之网络一TCP服务端实现">Unity开发之网络一TCP服务端实现</span>
+            <span class="post-date" title="2018-07-03 21:40:05">2018/07/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/07/03/u3d/unity-e5-bc-80-e5-8f-91-e6/"
+           data-tag="u3d,network"
+           data-author="" >
+            <span class="post-title" title="Unity开发之网络一TCP客户端实现">Unity开发之网络一TCP客户端实现</span>
+            <span class="post-date" title="2018-07-03 21:05:41">2018/07/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/06/22/u3d/e6-9c-8d-e5-8a-a1-e7-ab/"
+           data-tag="u3d,network"
+           data-author="" >
+            <span class="post-title" title="Unity开发之网络一HTTP服务端实现">Unity开发之网络一HTTP服务端实现</span>
+            <span class="post-date" title="2018-06-22 21:10:01">2018/06/22</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/06/22/u3d/unity-e5-bc-80-e5-8f-91-e12/"
+           data-tag="u3d,network"
+           data-author="" >
+            <span class="post-title" title="Unity开发之网络一HTTP客户端实现">Unity开发之网络一HTTP客户端实现</span>
+            <span class="post-date" title="2018-06-22 20:51:32">2018/06/22</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/06/08/u3d/unity-e5-bc-80-e5-8f-91-e10/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发源码的加解密二一打包自动加密">Unity开发源码的加解密二一打包自动加密</span>
+            <span class="post-date" title="2018-06-08 21:29:18">2018/06/08</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/06/07/u3d/unity-e5-bc-80-e5-8f-91-e9/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发源码的加解密一mono.dll和libmono.so编译">Unity开发源码的加解密一mono.dll和libmono.so编译</span>
+            <span class="post-date" title="2018-06-07 21:02:14">2018/06/07</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/05/21/u3d/e8-ae-be-e8-ae-a1-e6-a8/"
+           data-tag="u3d,pattern"
+           data-author="" >
+            <span class="post-title" title="Unity开发之设计模式---状态模式">Unity开发之设计模式---状态模式</span>
+            <span class="post-date" title="2018-05-21 21:10:20">2018/05/21</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/05/19/u3d/a1-e5-bc-8f-e4-b9-8b/"
+           data-tag="u3d,pattern"
+           data-author="" >
+            <span class="post-title" title="Unity开发之设计模式---观察者模式">Unity开发之设计模式---观察者模式</span>
+            <span class="post-date" title="2018-05-19 21:05:22">2018/05/19</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/05/18/u3d/e8-ae-be-e8-ae-a1-e6-a8-a1/"
+           data-tag="u3d,pattern"
+           data-author="" >
+            <span class="post-title" title="Unity开发之设计模式---单例模式">Unity开发之设计模式---单例模式</span>
+            <span class="post-date" title="2018-05-18 21:00:48">2018/05/18</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/11/other/e6-9c-80-e6-99-ae-e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《巴比伦最富有的人》：最古老、最普遍、最有效的七条财富法则">《巴比伦最富有的人》：最古老、最普遍、最有效的七条财富法则</span>
+            <span class="post-date" title="2018-05-11 14:11:21">2018/05/11</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/01/04/u3d/unity-e5-bc-80-e5-8f-91-e11/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发之类库封装与调用">Unity开发之类库封装与调用</span>
+            <span class="post-date" title="2018-01-04 09:38:55">2018/01/04</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/01/03/u3d/b0-e7-90-86-e5-9b-b4/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发之插件---高德地图定位和地理围栏(iOS)">Unity开发之插件---高德地图定位和地理围栏(iOS)</span>
+            <span class="post-date" title="2018-01-03 15:47:28">2018/01/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2018/01/03/u3d/e5-9c-b0-e7-90-86-e5/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity开发之插件---高德地图定位和地理围栏(Android)">Unity开发之插件---高德地图定位和地理围栏(Android)</span>
+            <span class="post-date" title="2018-01-03 15:47:14">2018/01/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/12/28/u3d/e5-af-bc-e8-a1-a8-ef-bc/"
+           data-tag="u3d,tool"
+           data-author="" >
+            <span class="post-title" title="Unity开发之工具---导表（Excel）的制作分析">Unity开发之工具---导表（Excel）的制作分析</span>
+            <span class="post-date" title="2017-12-28 15:47:49">2017/12/28</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/10/09/u3d/unity-e9-9b-86-e6-88-90protobuf/"
+           data-tag="u3d,network"
+           data-author="" >
+            <span class="post-title" title="Unity开发之网络---集成Protobuf">Unity开发之网络---集成Protobuf</span>
+            <span class="post-date" title="2017-10-09 18:31:23">2017/10/09</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/10/09/u3d/unity3d-shader-e7-a4-ba-e4/"
+           data-tag="u3d,ar"
+           data-author="" >
+            <span class="post-title" title="Unity开发之Shader—AR涂涂乐项目实战">Unity开发之Shader—AR涂涂乐项目实战</span>
+            <span class="post-date" title="2017-10-09 15:39:59">2017/10/09</span>
+        </a>
+        
+        <a  class="Tools "
+           href="/2017/07/28/tools/github-e5-88-9b-e5-bb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Github 创建个人博客">Github 创建个人博客</span>
+            <span class="post-date" title="2017-07-28 09:43:56">2017/07/28</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2017/06/29/cocos/e6-98-be-e7-a4-ba-e5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OpenGL ES学习实践—Shader实现不显示图片4个角">OpenGL ES学习实践—Shader实现不显示图片4个角</span>
+            <span class="post-date" title="2017-06-29 14:14:29">2017/06/29</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2017/06/19/cocos/a1-b6-e7-82-b9-e7-bc-93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OpenGL ES学习之四---你好三角形（顶点缓冲区对象）">OpenGL ES学习之四---你好三角形（顶点缓冲区对象）</span>
+            <span class="post-date" title="2017-06-19 20:28:08">2017/06/19</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2017/06/05/cocos/a1-b6-e7-82-b9-e5-b1-9e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OpenGL ES学习之三---你好三角形（顶点属性数组）">OpenGL ES学习之三---你好三角形（顶点属性数组）</span>
+            <span class="post-date" title="2017-06-05 09:52:15">2017/06/05</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2017/06/02/cocos/opengl-es-e5-ad-a6-e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OpenGL ES学习之二---着色器与程序">OpenGL ES学习之二---着色器与程序</span>
+            <span class="post-date" title="2017-06-02 12:19:30">2017/06/02</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/06/01/u3d/unity3d-e4-bc-98-e5-8c-96/"
+           data-tag="u3d,优化"
+           data-author="" >
+            <span class="post-title" title="Unity3d 优化">Unity3d 优化</span>
+            <span class="post-date" title="2017-06-01 10:49:02">2017/06/01</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/04/01/u3d/ar-sdk-e4-b9-8bvuforia/"
+           data-tag="u3d,总结"
+           data-author="" >
+            <span class="post-title" title="Unity 开发之---问题汇总">Unity 开发之---问题汇总</span>
+            <span class="post-date" title="2017-04-01 10:17:16">2017/04/01</span>
+        </a>
+        
+        <a  class="macOS "
+           href="/2017/03/19/ios/macos-x-e4-bd-bf-e7-94/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iOS/macOS X使用问题汇总">iOS/macOS X使用问题汇总</span>
+            <span class="post-date" title="2017-03-19 10:39:43">2017/03/19</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/03/03/u3d/unity-e9-a1-b9-e7-9b-ae-e14/"
+           data-tag="u3d"
+           data-author="" >
+            <span class="post-title" title="Unity项目优化汇总">Unity项目优化汇总</span>
+            <span class="post-date" title="2017-03-03 09:59:24">2017/03/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/03/03/u3d/unity-vr-e5-ba-94-e7-94-a8/"
+           data-tag="u3d,vr"
+           data-author="" >
+            <span class="post-title" title="Unity5中优化VR 应用的12个技巧">Unity5中优化VR 应用的12个技巧</span>
+            <span class="post-date" title="2017-03-03 09:59:01">2017/03/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/03/03/u3d/unity3d-e5-bc-80-e5-8f-91/"
+           data-tag="u3d,vr"
+           data-author="" >
+            <span class="post-title" title="Unity3D开发VR项目优化">Unity3D开发VR项目优化</span>
+            <span class="post-date" title="2017-03-03 09:58:18">2017/03/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2017/02/22/other/e7-bb-8f-e6-b5-8e-e6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="经济学必看书箱">经济学必看书箱</span>
+            <span class="post-date" title="2017-02-22 10:00:31">2017/02/22</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2017/02/20/other/e7-a8-8b-e5-ba-8f-e5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="程序员必看书籍">程序员必看书籍</span>
+            <span class="post-date" title="2017-02-20 10:37:38">2017/02/20</span>
+        </a>
+        
+        <a  class="Server "
+           href="/2017/02/07/server/tcp-e8-bf-9e-e6-8e-a5-e5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TCP连接建立与释放">TCP连接建立与释放</span>
+            <span class="post-date" title="2017-02-07 17:43:09">2017/02/07</span>
+        </a>
+        
+        <a  class="macOS "
+           href="/2017/01/20/ios/ios-e7-9c-9f-e6-9c-ba-e8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iOS真机调试免费证书">iOS真机调试免费证书</span>
+            <span class="post-date" title="2017-01-20 15:04:59">2017/01/20</span>
+        </a>
+        
+        <a  class="macOS "
+           href="/2017/01/09/ios/pod-e4-bd-bf-e7-94-a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CocoaPods 使用总结">CocoaPods 使用总结</span>
+            <span class="post-date" title="2017-01-09 11:25:42">2017/01/09</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/01/07/u3d/u3d-e8-af-95-e9-a2-98-e6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="U3D试题汇总">U3D试题汇总</span>
+            <span class="post-date" title="2017-01-07 15:18:27">2017/01/07</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/01/05/u3d/e7-bd-ae-e5-87-bd-e6-95/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之十四—内置函数和变量">Unity3D Shader学习之十四—内置函数和变量</span>
+            <span class="post-date" title="2017-01-05 23:00:56">2017/01/05</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2017/01/05/game/e5-bc-80-e5-8f-91-e4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="游戏开发之数学知识汇总">游戏开发之数学知识汇总</span>
+            <span class="post-date" title="2017-01-05 11:04:33">2017/01/05</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/01/04/u3d/b0-e5-92-8c-e5-8f-98/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之十三—内置函数和变量">Unity3D Shader学习之十三—内置函数和变量</span>
+            <span class="post-date" title="2017-01-04 15:09:28">2017/01/04</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2017/01/04/u3d/unity3d-shader-e5-ad-a6-e7/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之十二—着色器模板">Unity3D Shader学习之十二—着色器模板</span>
+            <span class="post-date" title="2017-01-04 15:08:42">2017/01/04</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/12/28/cocos/ef-bc-89opengl-es-api/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cocos OpenGL/ES学习之一—你好，三角形（3）OpenGL ES 着色器与程序">Cocos OpenGL/ES学习之一—你好，三角形（3）OpenGL ES 着色器与程序</span>
+            <span class="post-date" title="2016-12-28 11:53:34">2016/12/28</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/12/15/cocos/e8-a7-92-e5-a8glsl/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cocos OpenGL/ES学习之一—你好，三角形（2）着色器GLSL">Cocos OpenGL/ES学习之一—你好，三角形（2）着色器GLSL</span>
+            <span class="post-date" title="2016-12-15 12:25:42">2016/12/15</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/12/14/cocos/ef-bc-8c-e4-b8-89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cocos OpenGL/ES学习之一—你好，三角形（1）概览">Cocos OpenGL/ES学习之一—你好，三角形（1）概览</span>
+            <span class="post-date" title="2016-12-14 11:27:00">2016/12/14</span>
+        </a>
+        
+        <a  class="Tools "
+           href="/2016/12/13/tools/wordpress-e6-89-8d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Wordpress 手动更新">Wordpress 手动更新</span>
+            <span class="post-date" title="2016-12-13 11:39:05">2016/12/13</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/12/02/u3d/unity-e6-80-a7-e8-83-bd-e13/"
+           data-tag="u3d,shader,优化"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之十一—Shader性能优化">Unity3D Shader学习之十一—Shader性能优化</span>
+            <span class="post-date" title="2016-12-02 10:21:18">2016/12/02</span>
+        </a>
+        
+        <a  class="Tools "
+           href="/2016/11/25/tools/git-e5-b8-b8-e7-94-a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 常用命令及使用总结">Git 常用命令及使用总结</span>
+            <span class="post-date" title="2016-11-25 18:22:51">2016/11/25</span>
+        </a>
+        
+        <a  class="Tools "
+           href="/2016/11/25/tools/github-e5-88-9b-e5-bc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Github 创建项目">Github 创建项目</span>
+            <span class="post-date" title="2016-11-25 13:01:03">2016/11/25</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/10/u3d/unity3d-shader-e5-ad-a6-e6/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之十—释疑解惑">Unity3D Shader学习之十—释疑解惑</span>
+            <span class="post-date" title="2016-11-10 12:11:48">2016/11/10</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/10/u3d/unity3d-shader-e5-e4shader-debug/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之九—Shader Debug">Unity3D Shader学习之九—Shader Debug</span>
+            <span class="post-date" title="2016-11-10 10:14:32">2016/11/10</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/07/u3d/ar-e6-b6-82-e6-b6-82/"
+           data-tag="u3d,shader,ar"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader示例之—AR涂涂乐实现方法">Unity3D Shader示例之—AR涂涂乐实现方法</span>
+            <span class="post-date" title="2016-11-07 11:22:39">2016/11/07</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/06/u3d/unity3d-shader-e5-ad-a6-e4/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader示例之—AR涂涂乐实现原理">Unity3D Shader示例之—AR涂涂乐实现原理</span>
+            <span class="post-date" title="2016-11-06 12:30:52">2016/11/06</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/05/u3d/unity3d-shader-e5-ad-a6-e5/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之九—纹理">Unity3D Shader学习之九—纹理</span>
+            <span class="post-date" title="2016-11-05 12:11:14">2016/11/05</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/03/u3d/unity3d-shader-e5-ad-a6-e9/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之八—光照">Unity3D Shader学习之八—光照</span>
+            <span class="post-date" title="2016-11-03 12:06:16">2016/11/03</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/11/01/u3d/b4-e4-b8-8e-e4-b8-89/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之七—坐标空间与三维转换">Unity3D Shader学习之七—坐标空间与三维转换</span>
+            <span class="post-date" title="2016-11-01 12:00:10">2016/11/01</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/10/31/u3d/unity3d-shader-e5-ad-a6-e11/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之六—顶点和片段着色器">Unity3D Shader学习之六—顶点和片段着色器</span>
+            <span class="post-date" title="2016-10-31 17:05:47">2016/10/31</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/10/28/u3d/unity3d-shader-e5-shader-e7/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之五—Shader三种类型">Unity3D Shader学习之五—Shader三种类型</span>
+            <span class="post-date" title="2016-10-28 14:56:55">2016/10/28</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/10/28/u3d/unity3d-shader-unity-shader/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之四—Unity Shader基本概念">Unity3D Shader学习之四—Unity Shader基本概念</span>
+            <span class="post-date" title="2016-10-28 13:10:47">2016/10/28</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/10/28/u3d/unity3d-shader-e5-ad-a6-e10/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之三—渲染流程">Unity3D Shader学习之三—渲染流程</span>
+            <span class="post-date" title="2016-10-28 13:04:31">2016/10/28</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/10/26/u3d/unity3d-shader-e5-book/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之二—入门BOOK">Unity3D Shader学习之二—入门BOOK</span>
+            <span class="post-date" title="2016-10-26 10:59:46">2016/10/26</span>
+        </a>
+        
+        <a  class="U3D "
+           href="/2016/10/20/u3d/unity3d-shader-e5-ad-a6-e8/"
+           data-tag="u3d,shader"
+           data-author="" >
+            <span class="post-title" title="Unity3D Shader学习之一---取之有道">Unity3D Shader学习之一---取之有道</span>
+            <span class="post-date" title="2016-10-20 13:02:25">2016/10/20</span>
+        </a>
+        
+        <a  class="Life "
+           href="/2016/10/19/life/95-e4-b9-8b-e5-9b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="程序员的健康清单之四---身体拉伸">程序员的健康清单之四---身体拉伸</span>
+            <span class="post-date" title="2016-10-19 22:06:59">2016/10/19</span>
+        </a>
+        
+        <a  class="Life "
+           href="/2016/10/18/life/8d-95-e4-b9-8b-e4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="程序员的健康清单之三---手托、脚凳">程序员的健康清单之三---手托、脚凳</span>
+            <span class="post-date" title="2016-10-18 10:00:13">2016/10/18</span>
+        </a>
+        
+        <a  class="Life "
+           href="/2016/10/17/life/e7-a8-8b-e5-ba-8f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="程序员的健康清单之二---人体工学坐椅">程序员的健康清单之二---人体工学坐椅</span>
+            <span class="post-date" title="2016-10-17 10:00:07">2016/10/17</span>
+        </a>
+        
+        <a  class="Life "
+           href="/2016/10/16/life/4k-e6-98-be-e7-a4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="程序员的健康清单之一---4k显示器">程序员的健康清单之一---4k显示器</span>
+            <span class="post-date" title="2016-10-16 18:17:45">2016/10/16</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2016/10/15/other/9c-8b-e8-bf-99-e9-87/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="买4k／5k显示器前看这里（转载）">买4k／5k显示器前看这里（转载）</span>
+            <span class="post-date" title="2016-10-15 14:46:27">2016/10/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2016/09/13/math/e8-b4-9f-e6-95-b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="负数的二进制表示">负数的二进制表示</span>
+            <span class="post-date" title="2016-09-13 09:45:44">2016/09/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2016/09/08/other/8e-e5-9b-a2-e9-98-9f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="游戏开发流程与团队人员职责">游戏开发流程与团队人员职责</span>
+            <span class="post-date" title="2016-09-08 22:30:40">2016/09/08</span>
+        </a>
+        
+        <a  class="Life "
+           href="/2016/09/06/life/e4-ba-92-e8-81-94/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="互联网工作生存指南">互联网工作生存指南</span>
+            <span class="post-date" title="2016-09-06 15:46:19">2016/09/06</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2016/09/01/other/e8-bf-9c-e7-a8-8b-e7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Win10 解决无法多用户远程登录问题">Win10 解决无法多用户远程登录问题</span>
+            <span class="post-date" title="2016-09-01 18:48:59">2016/09/01</span>
+        </a>
+        
+        <a  class="Tools "
+           href="/2016/09/01/tools/wordpress-e5-ae-89/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Wordpress 安装配置 win10,win2003">Wordpress 安装配置 win10,win2003</span>
+            <span class="post-date" title="2016-09-01 18:47:32">2016/09/01</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2016/09/01/game/head-first-e8-ae-be-e8-ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《Head First 设计模式》------学习总结">《Head First 设计模式》------学习总结</span>
+            <span class="post-date" title="2016-09-01 18:45:48">2016/09/01</span>
+        </a>
+        
+        <a  class="Tools "
+           href="/2016/09/01/tools/redmine-e5-ae-89-e8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redmine 安装 win10系统">Redmine 安装 win10系统</span>
+            <span class="post-date" title="2016-09-01 18:45:16">2016/09/01</span>
+        </a>
+        
+        <a  class="UE4 "
+           href="/2016/09/01/ue4/unreal-e5-bc-80-e5-8g/"
+           data-tag="总结,ue4"
+           data-author="" >
+            <span class="post-title" title="Unreal 开发之 --- 问题汇总">Unreal 开发之 --- 问题汇总</span>
+            <span class="post-date" title="2016-09-01 18:43:51">2016/09/01</span>
+        </a>
+        
+        <a  class="UE4 "
+           href="/2016/09/01/ue4/unreal-e5-bc-80-e5-8f/"
+           data-tag="ue4"
+           data-author="" >
+            <span class="post-title" title="Unreal 开发之---基本概念">Unreal 开发之---基本概念</span>
+            <span class="post-date" title="2016-09-01 18:43:22">2016/09/01</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/09/01/cocos/e5-85-b7androidworks/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android 开发环境一键式管理工具AndroidWorks">Android 开发环境一键式管理工具AndroidWorks</span>
+            <span class="post-date" title="2016-09-01 18:42:36">2016/09/01</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/09/01/cocos/quick-lua-cocos-studios/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="quick-lua 获取Cocos Studios动画播放回调">quick-lua 获取Cocos Studios动画播放回调</span>
+            <span class="post-date" title="2016-09-01 18:34:12">2016/09/01</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/09/01/cocos/cocos-code-ide-e8-b0-83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="quick-3.5 绑定自定义C++类到Lua并使用cocos code ide 调式">quick-3.5 绑定自定义C++类到Lua并使用cocos code ide 调式</span>
+            <span class="post-date" title="2016-09-01 18:27:41">2016/09/01</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/09/01/cocos/quick-lua-3-cocos-code-ide/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="quick-lua 3.5 工程 cocos code ide 1.2.0 断点调试">quick-lua 3.5 工程 cocos code ide 1.2.0 断点调试</span>
+            <span class="post-date" title="2016-09-01 18:26:22">2016/09/01</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/09/01/cocos/quick-3-5-e6-89-93-e5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="quick-3.5 打包加密的个人总结">quick-3.5 打包加密的个人总结</span>
+            <span class="post-date" title="2016-09-01 18:25:28">2016/09/01</span>
+        </a>
+        
+        <a  class="Cocos "
+           href="/2016/09/01/cocos/quick-lua-assetsmanager-e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="quick-lua AssetsManager 热更新">quick-lua AssetsManager 热更新</span>
+            <span class="post-date" title="2016-09-01 18:21:11">2016/09/01</span>
+        </a>
+        
+        <a  class="Server "
+           href="/2016/09/01/server/ubuntu-e4-bd-bf-e7-94-a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ubuntu 使用汇总">ubuntu 使用汇总</span>
+            <span class="post-date" title="2016-09-01 18:09:27">2016/09/01</span>
+        </a>
+        
+        <a  class="UE4 "
+           href="/2016/08/16/ue4/e4-b8-80-e4-ba-9b-e7/"
+           data-tag="总结,vr,ue4"
+           data-author="" >
+            <span class="post-title" title="使用UE4进行VR制作的一些经验分析">使用UE4进行VR制作的一些经验分析</span>
+            <span class="post-date" title="2016-08-16 12:42:10">2016/08/16</span>
+        </a>
+        
+        <a  class="UE4 "
+           href="/2016/08/15/ue4/ue4-e5-bc-80-e5-8f-91/"
+           data-tag="优化,vr,ue4"
+           data-author="" >
+            <span class="post-title" title="UE4开发VR项目，帧率优化实践">UE4开发VR项目，帧率优化实践</span>
+            <span class="post-date" title="2016-08-15 12:38:19">2016/08/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2016/02/22/math/e6-95-b0-e5-ad-a6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数学入门书籍">数学入门书籍</span>
+            <span class="post-date" title="2016-02-22 10:09:39">2016/02/22</span>
+        </a>
+        
+        <a  class="Math "
+           href="/2016/01/06/math/e4-b8-8d-e4-b8-ba/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="不为应试,这12本经典好书只为激发孩子的数学学习兴趣">不为应试,这12本经典好书只为激发孩子的数学学习兴趣</span>
+            <span class="post-date" title="2016-01-06 12:14:42">2016/01/06</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-c++/c11-e6-96-b0-e7-89-b9" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">C++研究之---C++11 新特性</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="C">C</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">c++</a>
+            
+            <a href="javascript:" class="color1">c++11</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-08 17:59:30'>2018-08-22 13:57</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>总结C++11新特性的功能用法和注意事项</p>
+<ul>
+<li><p><strong>auto</strong> 功能：类型说明符，用于自动获取表达式所属的类型</p>
+<p>//1.auto定义的变量必须有初始值<br>auto item = val1 + val2;//item的初始化为val1和val2相加的结果</p>
+<p>//2.声明多个变量，每个变量类型要相同<br>auto sz = 0,pi = 3.14;//错误：sz和pi类型不一致</p>
+<p>//3.使用引用是使用引用的对象<br>int i = 0, &amp;r = i;<br>auto a = r; // a是一个整数</p>
+<p>//4.auto 忽略顶层const，保留底层const<br>const int ci = i,&amp;cr = ci;<br>auto b = ci; //b是一个整数(ci的顶层const特性被忽略掉了)<br>auto d = &i; //d是一个整形指针(整数的地址就是指向整数的指针)<br>auto e = &ci; //e是一个指向整数常量的指针（对常量对象取地址是一种底层const）</p>
+<p>//一条语句定义多个变量,符号&amp;和<em>只从属于某个声明符，而非基本数据类型，初始值必须是同一类型<br>auto k = ci,&amp;l = i;//k是整数，l是整数引用<br>auto &amp;n = i,</em>p2 = &ci;//错误，i的类型是int 而&amp;ci的类型是const int</p>
+</li>
+<li><p>long long 类型 C++语言规定，一个int至少和一个short一样大，一个long至少和一个int一样大，一个long long至少和一个long一样大</p>
+</li>
+<li><p>列表初始化 用花括号来初始化变量</p>
+<p>//各种初始化<br>int units_sold = 0;<br>int units_sold = {0};<br>int units_sold{0};<br>int units_sold(0);</p>
+<p>//列表初始化如果存在丢失信息的风险，则报错：<br>long double ld = 3.1415926;<br>int a{ld},b = {ld};//错误：转换示执行，因为存在丢失信息的危险<br>int c(ld),d = ld; //正确：转换执行，丢失部分数值</p>
+</li>
+<li><p>空指针 nullptr 特殊类型的字面值，可以转换为任意指针类型； C++程序最好使用nullptr，尽量避免使用NULL;</p>
+<p>//下面等价<br>int *p1 = nullptr;<br>int *p2 = 0;<br>//需要#include cstdlib<br>int *p3 = NULL</p>
+</li>
+<li><p>constexpr 变量 constexpr声明的变量由编译器来验证变量值是否是一个常量表达式； constexpr声明的变量一定是一个常量，而且必须用常量表达式初始化； constexpr声明的类型为字面值类型（算术，引用 和指针），自定义、IO库，string类型不属于。 constexpr指针初始值必须是nullptr或0，或是固定地址的对象(函数体之外的对象)</p>
+<p>constexpr int mf = 20;//20是常量表达式<br>constexpr int limit = mf + 1; //mf +1 是常量表达式<br>constexpr int sz = size(); //只有当size是一个constexpr函数时才是一条正确的声明语句</p>
+<p>//仅对指针有效，与指对象无关<br>const int *p = nullptr; //p是一个指向整形常量指针<br>constexpr int *q = nullptr;//q 是一个指向整数的常量指针</p>
+<p>//constexpr指针既可以指向常量也可以指向一个非常量<br>constexpr int *np = nullptr;//np是一个指向号数的常量指针<br>int j = 0;<br>constexpr int i = 42;<br>//i和j 都必须定义在函数体之外<br>constexpr const int *p = &i;//p是常量指针，指向整型常量i<br>constexpr int *p1 = &j;、、//p1是常量指针，指向整数j</p>
+</li>
+<li><p>类型别名using</p>
+<p>//传统方法 typedef<br>typedef double wages;//wages是double的同义词</p>
+<p>//using<br>using SI = Sales_item; //SI是Sales_item的同义词</p>
+<p>//指针、常量和类型别名<br>typedef char *pstring;//pstring 是指向char 的指针<br>const pstring cstr = 0;//cstr是指向char的常量指针<br>const pstring *ps;//ps是一个指针，它的对象是指向char的常量指针<br>//如果理解成:const char *cstr = 0;//是对const pstring cstrr 的错误理解</p>
+</li>
+<li><p>decltype 类型指示符 选择并返回操作数的数据类型</p>
+<p>decltype(f()) sum = x; //sum的类型就是函数f的返回类型</p>
+<p>//decltype处理顶层const和引用的方式与auto不同<br>const int ci = 0,&amp;cj = ci;<br>decltype(ci) x = 0; //x是const int<br>decltype(cj ) y = x; //y是const int&amp;,y绑定到变量x<br>decltype(cj) z; //错误 z是一个引用，必须初始化</p>
+<p>//如果decltype使用的表达式不是一个变量，则以返回的表达式结果对应类型<br>int i = 42,<em>p = &amp;i,&amp;r = i;<br>decltype(r + 0) b; //正确:加法的结果是int,因此b是一个int<br>decltype(</em>p) c; //错误：c是int&amp; 必须初始化</p>
+<p>//decltype 的表达式如果是加上了括号的变量，结果将是引用<br>decltype((i)) d;//错误：d是int&amp;,必须初始化<br>decltype(i) e;//正确：e是一个(未初始化的)int</p>
+<p>//使用decltype简化函数返回类型<br>int odd[] = {1,3,5};<br>int even[] = {0,2,4};<br>//返回一个指针，指向含有3个整数的数组<br>decltype(odd) *arrPtr(int i ){</p>
+<pre><code>return (i%2)?&amp;odd:&amp;even;</code></pre><p>}</p>
+</li>
+<li><p>类内初始化 初始化和赋值不同，一个是没值，一个是有值</p>
+</li>
+<li><p>范围for 遍历给定序列中的每个元素并对序列中的每个值执行某种操作</p>
+<p>//语法<br>for(declaration : expression)</p>
+<pre><code>statement</code></pre><p>//示例<br>string str(“some string”);<br>for(auto c : str) cout &lt;&lt; c &lt;&lt;endl;<br>for(auto &amp;c : s) c = toupper(c);//转为大写</p>
+</li>
+<li><p>vector对象的vector</p>
+<p>vector&lt;vector<int>&gt;</int></p>
+</li>
+<li><p>vector对象列表初始化</p>
+<p>vector<string> articles = {“a”,”an”,”the”};<br>vector<string> v1(“a”,”an”,”the”);//错误</string></string></p>
+</li>
+<li><p>容器的cbegin和cend函数 类似于begin和end，只是返回的是const_iterator</p>
+<p>auto it2 = v.cbegin();//it3的类型是vector<int>::const_iterator</int></p>
+</li>
+<li><p>函数begin和end 和容器功能类似，以数组为参数</p>
+<p>int ia[] = {0,1,2,3,4,5,6,7};<br>int *beg = begin(ia);//指向首元素的指针<br>int *last = end(ia);//指向尾元素的下一个位置的指针</p>
+<p>//示例<br>//pbeg指向arr的首元素，pend指向arr的尾元素的下一位置<br>int *pbeg = begin(arr),*pend = end(arr);<br>//寻找第一个负值元素<br>wile(pbeg != pend &amp;&amp; *pbeg &gt;=0) ++pbeg;</p>
+</li>
+<li><p>除法舍入规则 商一律向0取整(直接切除小数部分)</p>
+</li>
+<li><p>sizeof用于类成员 使用作用域运算符来获取类成员的大小，sizeof运算符无须提供一个具体的对象。</p>
+</li>
+<li><p>initializer_list类 标准库类型，用于表示某种特定类型的值的数组</p>
+<p>//是一种模板类型,注意元素是常量值<br>initializer_list<string> ls;//initializer_list的元素类型是string<br>initializer_list<int> li;</int></string></p>
+<p>//示例<br>void error_msg(initializer_list<string> il)<br>{</string></p>
+<pre><code>for(auto beg = il.begin();beg!= il.end();++beg) cout &lt;&lt; *beg &lt;&lt; &quot;&quot;;
+cout &lt;&lt;endl;</code></pre><p>}<br>//调用 expected 和actual是string对象<br>if(expected != actual) error_msg({“functionX”,expected,actual});<br>else error_msg({“fuctionX”,”okay”});</p>
+</li>
+<li><p>列表初始化返回值 函数可以返回花括号包围的值的列表</p>
+<p>vector<string> process()<br>{</string></p>
+<pre><code>return {};
+//return {&quot;fuctionX&quot;,&quot;okay&quot;};</code></pre><p>}</p>
+</li>
+<li><p>尾置返回类型 较适用于返回类型比较复杂的函数（数组的指针或数组的引用）</p>
+<p>//func接受一个int类型的实参,返回一个指针，该指针指向含有10个整数的数组<br>auto func(int i)-&gt;int (*)[10];//注意加括号和不加括号的区别</p>
+</li>
+<li><p>constexpr函数 能用于常量表达式的函数：函数返回类型及所有形参的类型都得是字面值类型；函数体必须有且只有一条return语句</p>
+<p>constexpr int new_sz() {return 42;}<br>constexpr int foo = new_sz();//正确：foo是一个常量表达式</p>
+<p>//函数体内也可以包含其他语句，只有这些语句在运行时不执行任何操作（空语句，类型别名，using声明）<br>//如果arg是常量表达式,scale(arg）也是常量表达式<br>constexpr size_t scale(size_t cnt){return new_sz() * cnt}</p>
+<p>//当scale的实参是常量表达式时，它的返回值也是常量表达式<br>int arr[scale(2)]; //正确<br>int i = 2;<br>int a2[scale(i)]; //错误，scale(i)不是常量表达式</p>
+</li>
+<li><p>=default 生成默认构造函数 通过在参数列表后面写上=default，要求编译器生成构造函数。可以和声明一起出来在类的内部（内联），也可以作为定义出现在类的外部。</p>
+<p>Sales_data() = default;</p>
+</li>
+<li><p>类对象成员类内初始化</p>
+<p>class Window_mgr{<br>private:</p>
+<pre><code>//这个Window_mgr追踪的Screen
+//默认情况下，一个Window_mgr包含一个标准尺寸的空白Screen
+std::vector&lt;Screen&gt; screens{Screen(24,80,&apos;&apos;)};</code></pre><p>}</p>
+</li>
+<li><p>委托构造函数 使用它所属类的其他构造函数执行它自己的初始化过程（把它职责委托给了其他构造函数）</p>
+<p>class Sales_data{<br>public:</p>
+<pre><code>//非委托构造函数使用对应的实参初始化成员
+Sales\_data(std::string s,unsigned cnt,double price):bookNo(s),units\_sold(cnt),revenue(cnt *price){}
+//委托构造
+Sales\_data():Sales\_data(&quot;&quot;,0,0){}</code></pre></li>
+<li><p>constexpr构造函数 符合构造函数要求（没有返回语句），符合constexpr函数要求（拥有唯一可执行语句就是返回语句），一般函数是空的。可声明=default或=delete</p>
+<p>//constexpr构造函数必须初始化所有数据成员，初始值使用constexpr构造函数或一条常量表达式<br>class Debug{<br>public:</p>
+<pre><code>constexpr Debug(bool b = true):hw(b),io(b),other(b){}
+constexpr bool any(){return hw||io||other;}</code></pre><p>}</p>
+<p>//constexpr构造函数用于生成constexpr对象以及constexpr函数的参数或返回类型<br>constexpr Debug io_sub(false,true,false);<br>if(io_sub.any()) cerr&lt;&lt;”print appropriate error message”&lt;&lt;endl;</p>
+</li>
+<li><p>用string对象处理文件名 IO参数可以使用库类型string的对象</p>
+</li>
+<li><p>array和forward_list容器 与内置数组相比,array是一种更安全、更容易使用的数组类型；array对象的大小是固定的，不支持添加和删除元素以及改变容器的大小操作。 forward_list目标是达到与最好手写的单向链表数据结构相当的性能，没有size操作</p>
+</li>
+<li><p>容器的cbegin和cend函数 无论容器元素是否是常量，返回值都是const_iterator</p>
+<p>auto it3 = v.cbegin(); //it3的类型是vector<int>::const_iterator</int></p>
+</li>
+<li><p>容器的列表初始化</p>
+<p>list<string> authors = {“M”,”S”,”A”};<br>vector&lt;const char*&gt; art = {“a”,”an”,”the”};</string></p>
+</li>
+<li><p>容器的非成员函数swap swap操作交换两个相同类型容器的内容。调用后，元素交换(本身未交换，只是交换了两个容器的数据结构)</p>
+<p>vector<string> svec1(10); //10个元素<br>vector<string> svec2(24);<br>swap(svec1,svec2);</string></string></p>
+</li>
+<li><p>容器insert成员的返回类型 insert返回指向第一个新加入元素的迭代器，如果范围为空，不插入任何元素，insert操作会将第一个参数返回。</p>
+<p>list<string> lst;<br>auto iter = lst.begin();<br>while(cin &gt;&gt; word)</string></p>
+<pre><code>iter = lst.insert(iter,word);//等价于调用push_front</code></pre></li>
+<li><p>容器的emplace成员的返回类型 emplace_front,empace和emplace_back 操作构造元素（相对于push或insert拷贝），对应push_front,insert和push_back,将元素旋转在容器的头部、一个指定位置之前或窗口尾部</p>
+</li>
+<li><p>shrink_to_fit 适用于vector,string和deque，capacity和reserve只适用于vector和string</p>
+<p>c.shrink_to_fit();//将capacity()减少为与size()相同的大小</p>
+</li>
+<li><p>string的数值转换函数</p>
+<p>int i = 42;<br>string s = to_string(i);//将整数i转换为字符表示形式<br>double d = stod(s);//将字符串s转换为浮点数</p>
+<p>//转换s中以数字开始的第一个子串，结果d = 3.14<br>string s2 = “pi = 3.14”;<br>d = stod(s2.substr(s2.find_first_of(“+-.0123456789”)));</p>
+</li>
+<li><p>lambda匿名函数 可调用对象(callable object)(函数，函数指针，重载运算符的类，lambda表达式) lambda:未命名的内联函数，可定义在函数内部</p>
+<p>//capture list(捕获列表)，通常为空；<br>[capture list](parameter list) -&gt; return type{function body}</p>
+<p>//可忽略参数列表和返回类型，但必包含捕获列表和函数体<br>//空参数列表，推断返回类型<br>auto f = [] {return 42;};<br>cout &lt;&lt; f() &lt;&lt;endl;//调用</p>
+<p>//传参<br>[](const string &amp;a,const string &amp;b){return a.size()&lt; b.size()}<br>//调用示例<br>stable_sort(words.begin(),words.end(),[](const string &amp;a,const string &amp;b){return a.size&lt;b.size();});</p>
+<p>//捕获列表<br>[sz](const string &amp;a){ return a.size &gt;=sz;};</p>
+<p>//调用find_if<br>auto wc = find_if(words.begin(),words.end(),</p>
+<pre><code>\[sz\](const string &amp;a){ return a.size &gt;=sz;})</code></pre><p>//for_each<br>for_each(wc,words.end(),</p>
+<pre><code>\[\](const string &amp;s){cout &lt;&lt; s &lt;&lt; &quot; &quot;;});</code></pre><p>cout &lt;&lt; endl;</p>
+<p>//值捕获<br>void fcn1()<br>{</p>
+<pre><code>size_t v1 = 42;
+auto f = \[v1\]{return v1;};
+v1 = 0;
+auto j = f();//j为42;</code></pre><p>}</p>
+<p>//引用捕获<br>void fcn2(){</p>
+<pre><code>size_t v1 = 42;
+auto f2 = \[&amp;v1\]{return v1;};
+v1 = 0;
+auto j = f2();//j为0，</code></pre><p>}</p>
+<p>//隐式捕获<br>//sz为隐式捕获，值捕获方式<br>wc = find_if(words.begin(),words.end(),</p>
+<pre><code>\[=\](const string &amp;s){return s.size()&gt;=sz;})</code></pre><p>//可变lambda<br>void fcn3(){</p>
+<pre><code>size_t v1 = 42;
+//f可以改变它所捕获的变量的值
+auto f = \[v1\]() mutable{return ++v1;};
+v1 = 0;
+auto j = f(); //是为43;</code></pre><p>}</p>
+<p>//尾置返回类型<br>transform(vi.begin(),vi.end(),vi.begin(),</p>
+<pre><code>\[\](int i) -&gt; int
+{if(i&lt;0) return -i; else return i;});</code></pre></li>
+<li><p>标准bind 在functional文件中定义，通用的函数适配器，接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表</p>
+<p>auto new Callable = bind(callable,arg_list);</p>
+<p>//check6是一个可调用对象，接受一个string类型的参数<br>//并用此string和值6来调用check_size<br>auto check6 = bind(check_size,_1,6);//_1参数占位符</p>
+<p>string s = “hello”;<br>bool b1 = check6(s);//check6(s)会调用check_size(s,6);</p>
+<p>//lambada的find_if<br>auto wc = find_if(words.begin(),words.end(),[sz](const string &amp;a))<br>//替换为<br>auto wc = find_if(words.begin(),words.end(),bind(check_size,_1,siz));</p>
+<p>//_n为placeholders命名空间所定义,functional头文件中<br>using std::placeholders::_1;<br>//使用所有的定义<br>using std::placeholders</p>
+<p>//bind的参数<br>//g是一个有两个参数的可调用对象<br>auto g = bind(f,a,b,_2,c,_1);<br>//示例<br>//g(_1,_2) 映射为<br>//f(a,b,_2,c_1)</p>
+<p>//用bind重排参数顺序<br>//按单词长度由短到长排序<br>sort(words.begin(),words.end(),isShorter);<br>//按单词长度由长到短排序<br>sort(words.begin(),words.end(),bind(isShorter,_2,-1));</p>
+<p>//绑定引用参数,ref和cref(const引用类) 定义与functional<br>//为了替换一个引用方式捕获ostream的lambda:<br>//os是一个局部变量，引用一个输出流<br>//c是一个局部变量，类型为char<br>for_each(words.begin(),words.end(),[&amp;os,c](const string &amp;s){os &lt;&lt; s &lt;&lt; c;});<br>//相同的函数<br>ostream &amp;print(ostream &amp;os,const string &amp;s,char c){</p>
+<pre><code>return os&lt;&lt;s &lt;&lt;c;</code></pre><p>}<br>//用bind代替os的捕获是错误的,os不能拷贝<br>for_each(words.begin(),words.end(),bind(print,os,_1, ‘’));<br>//可以使用标准的ref函数<br>for_each(words.begin(),words.end(),bind(print,ref(os),_1,’’));</p>
+</li>
+</ul>
+<p>待续… 汇总自：C++Primer 第五版</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 xue_huashan@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>C++研究之---C++11 新特性</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.4k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="max-xue">max-xue</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-08-22, 13:57:02</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-08, 17:59:30</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/08/22/c++/c11-e6-96-b0-e7-89-b9/" title="C++研究之---C++11 新特性">http://blog.le-more.com/2018/08/22/c++/c11-e6-96-b0-e7-89-b9/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'a08c10de70e3ba131c05',
+            clientSecret: '06d643bead8a2f1ef910e93d33083cdad5464b9a',
+            repo: 'max-xue.github.io',
+            owner: 'max-xue',
+            admin: ['max-xue'],
+            id: decodeURI(window.location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 max-xue</p>
+<p class="footer-entry"><a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">皖ICP备14017199号</a></p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#c++','#c++11','#mylife','#hexo','#guide','#u3d','#pattern','#shader','#ar','#总结','#network','#tool','#优化','#vr','#ue4',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
